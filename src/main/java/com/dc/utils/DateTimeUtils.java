@@ -1,11 +1,6 @@
 package com.dc.utils;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -17,12 +12,10 @@ import java.util.Date;
 
 public class DateTimeUtils {
 	
-	private static Logger logger = LogManager.getLogger();
-
 	/**
 	 * 指定文件名、截图的日期格式
 	 * 
-	 * @return 返回时间格式，如：2016-07-22-15-15-30
+	 * @return 返回时间格式，如：20160722-151530
 	 * 
 	 */
 	public static String getFileDateTime() {

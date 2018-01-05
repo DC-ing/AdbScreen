@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AndroidAdb {
-    Logger logger = LogManager.getLogger(this.getClass());
-    ProcessCommand cmd = new ProcessCommand();
+    private Logger logger = LogManager.getLogger(this.getClass());
+    private ProcessCommand cmd = new ProcessCommand();
 
     /**
      * 开启 adb 服务
@@ -88,7 +88,6 @@ public class AndroidAdb {
         }
         return deviceSerail;
     }
-
 
     /**
      * 获取指定设备的名称
@@ -171,8 +170,8 @@ public class AndroidAdb {
      *
      */
     public void getScreenShot() {
-        for (String deviceid : this.getDeviceUDID()) {
-            this.getScreenShot(deviceid);
+        for (String deviceId : this.getDeviceUDID()) {
+            this.getScreenShot(deviceId);
         }
     }
 
