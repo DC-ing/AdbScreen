@@ -15,6 +15,7 @@ public class AndroidAdb {
      * 开启 adb 服务
      *
      * */
+    @Deprecated
     public void startADB() {
         String output = null;
         try {
@@ -30,14 +31,18 @@ public class AndroidAdb {
     }
 
     /**
-     * 关闭 adb 服务
+     * 检查 adb 服务是否存在
      *
-     * */
-    public void stopADB() {
+     */
+    public void checkADBisExist() {
         try {
-            cmd.runCommand("adb kill-server");
-            logger.info("关闭 adb 服务");
-        } catch (IOException e) {
+            String result = cmd.runCommand("adb shell service check phone");
+            if (result.contains("found")) {
+                logger.info("adb 服务已开启");
+            } else {
+                logger.error("请在系统设置 ANDROID_HOME 环境变量");
+            }
+        } catch(IOException e) {
             logger.catching(e);
         }
     }
@@ -49,8 +54,8 @@ public class AndroidAdb {
      *
      * */
     public List<String> getDeviceUDID() {
-        ArrayList<String> deviceSerail = new ArrayList<String>();
-        this.startADB();
+        ArrayList<String> deviceSerail = new ArrayList<>();
+        this.checkADBisExist();
         String output;
         try {
             output = cmd.runCommand("adb devices");
