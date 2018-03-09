@@ -21,7 +21,7 @@ public class ProcessCommand {
         p = Runtime.getRuntime().exec(command);
         //命令执行后，获得输出日志
         BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        String line = "";
+        String line;
         String allLine = "";
         while ((line = r.readLine()) != null) {
             allLine = allLine + "" + line + "\n";

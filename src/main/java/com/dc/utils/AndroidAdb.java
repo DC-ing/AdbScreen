@@ -31,23 +31,6 @@ public class AndroidAdb {
     }
 
     /**
-     * 检查 adb 服务是否存在
-     *
-     */
-    public void checkADBisExist() {
-        try {
-            String result = cmd.runCommand("adb shell service check phone");
-            if (result.contains("found")) {
-                logger.info("adb 服务已开启");
-            } else {
-                logger.error("请在系统设置 ANDROID_HOME 环境变量");
-            }
-        } catch(IOException e) {
-            logger.catching(e);
-        }
-    }
-
-    /**
      * 获取设备号(udid)
      *
      * @return 设备号
@@ -55,15 +38,13 @@ public class AndroidAdb {
      * */
     public List<String> getDeviceUDID() {
         ArrayList<String> deviceSerail = new ArrayList<>();
-        this.checkADBisExist();
         String output;
         try {
             output = cmd.runCommand("adb devices");
             String[] lines = output.split("\n");
 
             if (lines.length <= 1) {
-                logger.warn("暂无连接设备");
-                return null;
+                return deviceSerail;
             } else {
                 String udidForLog = "";
                 int linesLength = lines.length;
@@ -175,8 +156,13 @@ public class AndroidAdb {
      *
      */
     public void getScreenShot() {
-        for (String deviceId : this.getDeviceUDID()) {
-            this.getScreenShot(deviceId);
+        List<String> devices = this.getDeviceUDID();
+        if (devices != null && devices.size() != 0) {
+            for (String deviceId : this.getDeviceUDID()) {
+                this.getScreenShot(deviceId);
+            }
+        } else {
+            logger.warn("暂无连接设备");
         }
     }
 
