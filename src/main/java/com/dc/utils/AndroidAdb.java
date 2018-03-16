@@ -14,7 +14,7 @@ public class AndroidAdb {
     /**
      * 开启 adb 服务
      *
-     * */
+     */
     @Deprecated
     public void startADB() {
         String output = null;
@@ -35,7 +35,7 @@ public class AndroidAdb {
      *
      * @return 设备号
      *
-     * */
+     */
     public List<String> getDeviceUDID() {
         ArrayList<String> deviceSerail = new ArrayList<>();
         String output;
@@ -82,7 +82,7 @@ public class AndroidAdb {
      *
      * @return 设备名称
      *
-     * */
+     */
     public String getDeviceName(String deviceID) {
         String deviceName = null;
         try {
@@ -107,7 +107,7 @@ public class AndroidAdb {
      *
      * @return 设备系统版本号
      *
-     * */
+     */
     public String getDeviceOSVersion(String deviceID) {
         String deviceOSVersion = null;
         try {
