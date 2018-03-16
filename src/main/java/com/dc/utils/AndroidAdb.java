@@ -158,7 +158,7 @@ public class AndroidAdb {
     public void getScreenShot() {
         List<String> devices = this.getDeviceUDID();
         if (devices != null && devices.size() != 0) {
-            for (String deviceId : this.getDeviceUDID()) {
+            for (String deviceId : devices) {
                 this.getScreenShot(deviceId);
             }
         } else {
