@@ -1,6 +1,6 @@
 # AdbScreen
 
-macOS 电脑上，对已连接的 Android 设备截图的小工具
+macOS 或 Linux 系统，对已连接的 Android 设备截图的小工具
 
 ## 安装环境
  1. 搭建 Java 开发环境
