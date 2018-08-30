@@ -128,7 +128,7 @@ public class AndroidAdb {
      */
     public void getScreenShot(String deviceId) {
         String screenFile = this.getDeviceName(deviceId) + "-" + this.getDeviceOSVersion(deviceId) + "-" + DateTimeUtils.getFileDateTime() +".png";
-        String screenshotFilePath = System.getProperty("user.dir") + "/Desktop/" + screenFile;
+        String screenshotFilePath = System.getProperty("user.home") + "/Desktop/" + screenFile;
         logger.info("截图保存路径：" + screenshotFilePath);
         String screenFileInDevice = "/sdcard/" + screenFile;
         try {
