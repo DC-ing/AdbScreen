@@ -25,7 +25,8 @@ public class AndroidAdb {
             logger.catching(e);
         }
         String[] lines = output.split("\n");
-        if (lines[0].contains("internal or external command")) {
+        //仅在macOS、Linux中生效，Windows系统无法确定是否生效
+        if (lines[0].contains("command not found")) {
             logger.error("请在系统设置 ANDROID_HOME 环境变量");
         }
     }
