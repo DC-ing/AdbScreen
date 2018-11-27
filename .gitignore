@@ -1,25 +1,6 @@
 
 # 项目忽略文件
-/test-output
-/test-result
-/target
-/log
+target/
 /Desktop
-test-datas/~$*
-/release
-
-# Eclipse
-/bin
-/.settings
-.classpath
-.project
-*.class
-
-# IDEA
-/.idea
+.idea/
 *.iml
-
-
-*.ipr
-*.iws
-SimpleTest.java
